@@ -35,6 +35,8 @@ module.exports = {
     contentBase: commonPaths.devOutputPath,
     compress: true,
     hot: true,
+    host: '0.0.0.0',
+    port: 8080,
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
 };

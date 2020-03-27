@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader/root';
-import Loader from './components/loader';
+import { html } from './utils/environment';
+import { isIE } from './utils/is';
+import Loader from './components/Loader';
+import Guides from './components/Guides';
+
+function handlePageLoading() {
+  window.addEventListener('load', () => {
+    html.classList.remove('is-loading');
+    html.classList.add('is-loaded', 'is-ready');
+  });
+}
 
 class App extends Component {
   constructor(props) {
@@ -8,8 +18,18 @@ class App extends Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    handlePageLoading();
+    isIE();
+  }
+
   render() {
-    return <Loader />;
+    return (
+      <div className="app__container">
+        <Loader />
+        <Guides />
+      </div>
+    );
   }
 }
 
