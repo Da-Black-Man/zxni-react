@@ -57,10 +57,11 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: false,
+              url: false,
               localsConvention: 'camelCase',
-              modules: {
-                localIdentName: '[local]___[hash:base64:5]',
-              },
+              // modules: {
+              //   localIdentName: '[local]___[hash:base64:5]',
+              // },
             },
           },
           'sass-loader',

@@ -6,7 +6,7 @@
 
 @include font-face(
     $font-euclid,
-    "assets/fonts/Euclid/EuclidFlex",
+    "fonts/Euclid/EuclidFlex",
     ("eot", "woff", "ttf")
 ) {
     font-style:  normal;
@@ -16,8 +16,8 @@
 
 @include font-face(
     $font-euclid,
-    "assets/fonts/Euclid/EuclidFlexBold",
-    ("eot", "woff", "ttf")
+    "fonts/Euclid/EuclidFlexBold",
+    ("eot", "woff", "ttf", "svg")
 ) {
     font-style:  normal;
     font-weight: 700;
@@ -26,8 +26,8 @@
 
 @include font-face(
     $font-euclid,
-    "assets/fonts/Euclid/EuclidFlexLight",
-    ("eot", "woff", "ttf")
+    "fonts/Euclid/EuclidFlexLight",
+    ("eot", "woff", "ttf", "svg")
 ) {
     font-style:  normal;
     font-weight: 300;

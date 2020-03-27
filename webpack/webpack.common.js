@@ -2,8 +2,10 @@ const eslint = require('eslint');
 const webpack = require('webpack');
 const convert = require('koa-connect');
 const history = require('connect-history-api-fallback');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const path = require('path');
 const commonPaths = require('./paths');
 
 module.exports = {
@@ -27,23 +29,31 @@ module.exports = {
         exclude: /(node_modules)/,
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(gif|jpg|png|jpe?g)$/i,
         use: [
           {
             loader: 'file-loader',
             options: {
               outputPath: commonPaths.imagesFolder,
+              name: '[name].[ext]',
+              useRelativePath: true,
+              // publicPath: '',
+              // esModule: false,
             },
           },
         ],
       },
       {
-        test: /\.(woff2|ttf|woff|eot)$/,
+        test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
         use: [
           {
             loader: 'file-loader',
             options: {
               outputPath: commonPaths.fontsFolder,
+              name: '[name].[ext]',
+              useRelativePath: true,
+              // publicPath: '',
+              // esModule: false,
             },
           },
         ],
@@ -68,6 +78,9 @@ module.exports = {
     extensions: ['*', '.js', '.jsx', '.css', '.scss'],
   },
   plugins: [
+    new CopyWebpackPlugin([
+      { from: path.resolve(__dirname, '../src/assets'), to: 'assets' },
+    ]),
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
       template: commonPaths.templatePath,

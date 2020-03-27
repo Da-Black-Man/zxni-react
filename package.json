@@ -44,7 +44,7 @@
       "jsx"
     ]
   },
-  "repository": "https://github.com/HashemKhalifa/webpack-react-boilerplate",
+  "repository": "https://github.com/Da-Black-Man/zxni-react",
   "author": "ZXNI",
   "license": "ISC",
   "private": false,
@@ -94,6 +94,7 @@
     "browserslist": "4.11.0",
     "clean-webpack-plugin": "3.0.0",
     "connect-history-api-fallback": "1.6.0",
+    "copy-webpack-plugin": "^5.1.1",
     "cross-env": "7.0.2",
     "css-loader": "3.4.2",
     "enzyme": "3.11.0",
