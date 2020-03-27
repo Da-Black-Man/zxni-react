@@ -4,6 +4,7 @@ import { html } from './utils/environment';
 import { isIE } from './utils/is';
 import Loader from './components/Loader';
 import Guides from './components/Guides';
+import Cursor from './components/Cursor';
 
 function handlePageLoading() {
   window.addEventListener('load', () => {
@@ -28,6 +29,7 @@ class App extends Component {
       <div className="app__container">
         <Loader />
         <Guides />
+        <Cursor />
       </div>
     );
   }
