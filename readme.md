@@ -32,8 +32,6 @@ webpack
 
 1- Clone the boilerplate repo
 
-`git clone git@github.com:HashemKhalifa/webpack-react-boilerplate.git`
-
 2- `yarn` or `npm install` to install npm packages
 
 3- start dev server using `npm run dev`.
@@ -71,3 +69,5 @@ webpack
 * [Browsers list](https://github.com/browserslist/browserslist) [ Share target browsers between different front-end tools, like Autoprefixer, Stylelint and babel-preset-env ]
 * [React hot loader](https://github.com/gaearon/react-hot-loader)
 * [Webpack dev serve](https://github.com/webpack/webpack-dev-server) 
+
+

@@ -9,17 +9,20 @@ class Cursor extends React.Component {
       innerCursor: '.o-cursor-circle__inner',
       showCursor: true,
     };
+    this.initCursor = this.initCursor.bind(this);
+    this.initHovers = this.initHovers.bind(this);
   }
 
   componentDidMount() {
-    this.outerCursor = document.querySelector(this.state.outerCursor);
-    this.innerCursor = document.querySelector(this.state.innerCursor);
+    const { showCursor } = this.state;
+    this.outerCursor = document.querySelector('.o-cursor-circle__outer');
+    this.innerCursor = document.querySelector('.o-cursor-circle__inner');
     this.outerCursorBox = this.outerCursor.getBoundingClientRect();
     this.outerCursorSpeed = 0;
     this.clientX = -100;
     this.clientY = -100;
     this.activeCursor = false;
-    if (this.state.showCursor === true) {
+    if (showCursor === true) {
       this.initCursor();
       this.initHovers();
     }
