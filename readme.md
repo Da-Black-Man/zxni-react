@@ -1,5 +1,4 @@
-## Webpack react minimal boilerplate
-
+## Webpack react minimal boilerplate.
 ### Table of contents
 [Project structure](#project-structure)
 
@@ -69,5 +68,3 @@ webpack
 * [Browsers list](https://github.com/browserslist/browserslist) [ Share target browsers between different front-end tools, like Autoprefixer, Stylelint and babel-preset-env ]
 * [React hot loader](https://github.com/gaearon/react-hot-loader)
 * [Webpack dev serve](https://github.com/webpack/webpack-dev-server) 
-
-
