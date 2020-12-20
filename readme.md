@@ -1,4 +1,4 @@
-## Webpack react minimal boilerplate.
+## Webpack react minimal boilerplate
 ### Table of contents
 [Project structure](#project-structure)
 
