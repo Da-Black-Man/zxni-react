@@ -12,8 +12,10 @@ $assets-path: "../"  !default;
 
 // Typefaces
 // =============================================================================
-$font-sans-serif: sans-serif;
+$font-sans-serif: 'sans-serif';
 $font-euclid: 'EuclidFlex';
+$font-montserrat: 'Montserrat';
+
 
 
 // Typography
@@ -21,7 +23,7 @@ $font-euclid: 'EuclidFlex';
 // Base
 $font-size:   16px;
 $line-height: 24px / $font-size;
-$font-family: $font-euclid, $font-sans-serif;
+$font-family: $font-montserrat, $font-sans-serif;
 $color:       #222222;
 // Headings
 $font-size-h1:  36px  !default;

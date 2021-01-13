@@ -1,10 +1,10 @@
-const eslint = require('eslint');
 const webpack = require('webpack');
 const convert = require('koa-connect');
 const history = require('connect-history-api-fallback');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path');
 const commonPaths = require('./paths');
 
@@ -13,20 +13,18 @@ module.exports = {
   module: {
     rules: [
       {
-        enforce: 'pre',
         test: /\.(js|jsx)$/,
-        loader: 'eslint-loader',
+        loader: 'babel-loader',
         exclude: /(node_modules)/,
         options: {
-          formatter: eslint.CLIEngine.getFormatter('stylish'),
-          emitWarning: process.env.NODE_ENV !== 'production',
-          // fix: true,
+          presets: ['@babel/react'],
+          plugins: [['import', { libraryName: 'antd', style: true }]],
         },
       },
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel-loader',
-        exclude: /(node_modules)/,
+        use: 'react-hot-loader/webpack',
+        include: /node_modules/,
       },
       {
         test: /\.(gif|jpg|png|jpe?g)$/i,
@@ -71,22 +69,27 @@ module.exports = {
     open: true,
   },
   resolve: {
-    alias: {
-      'react-dom': '@hot-loader/react-dom',
-    },
     modules: ['src', 'node_modules'],
     extensions: ['*', '.js', '.jsx', '.css', '.scss'],
   },
   plugins: [
-    new CopyWebpackPlugin([
-      { from: path.resolve(__dirname, '../src/assets'), to: 'assets' },
-    ]),
+    new CopyWebpackPlugin({
+       patterns: [
+        { from: path.resolve(__dirname, '../src/assets'), to: "assets" }
+      ],
+      // { from: path.resolve(__dirname, '../src/assets'), to: 'assets' },
+    }),
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
       template: commonPaths.templatePath,
     }),
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'async',
+    }),
+    new ESLintPlugin({
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
+      fix: true,
+      emitWarning: process.env.NODE_ENV !== 'production',
     }),
   ],
 };

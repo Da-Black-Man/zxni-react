@@ -3,34 +3,42 @@
 // ==========================================================================
 
 
-
-@include font-face(
-    $font-euclid,
-    "fonts/Euclid/EuclidFlex",
-    ("eot", "woff", "ttf")
-) {
-    font-style:  normal;
-    font-weight: 400;
-    text-rendering: optimizeLegibility;
-}
-
 @include font-face(
     $font-euclid,
     "fonts/Euclid/EuclidFlexBold",
     ("eot", "woff", "ttf", "svg")
 ) {
     font-style:  normal;
-    font-weight: 700;
+    font-weight: bold;
     text-rendering: optimizeLegibility;
-}
+};
 
 @include font-face(
-    $font-euclid,
-    "fonts/Euclid/EuclidFlexLight",
+    $font-montserrat,
+    "fonts/Montserrat/Montserrat-Bold",
     ("eot", "woff", "ttf", "svg")
 ) {
     font-style:  normal;
-    font-weight: 300;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+};
+
+@include font-face(
+    $font-montserrat,
+    "fonts/Montserrat/Montserrat-SemiBold",
+    ("eot", "woff", "ttf", "svg")
+) {
+    font-style:  normal;
+    font-weight: 600;
+    text-rendering: optimizeLegibility;
+};
+
+@include font-face(
+    $font-montserrat,
+    "fonts/Montserrat/Montserrat-Regular",
+    ("eot", "woff", "ttf", "svg")
+) {
+    font-style:  normal;
+    font-weight: normal;
     text-rendering: optimizeLegibility;
 }
-
