@@ -15,6 +15,7 @@ $assets-path: "../"  !default;
 $font-sans-serif: 'sans-serif';
 $font-euclid: 'EuclidFlex';
 $font-montserrat: 'Montserrat';
+$font-icon: 'custom-icons';
 
 
 
@@ -24,6 +25,9 @@ $font-montserrat: 'Montserrat';
 $font-size:   16px;
 $line-height: 24px / $font-size;
 $font-family: $font-montserrat, $font-sans-serif;
+$font-default: $font-montserrat, $font-sans-serif;
+$font-title: $font-euclid, $font-sans-serif;
+
 $color:       #222222;
 // Headings
 $font-size-h1:  36px  !default;

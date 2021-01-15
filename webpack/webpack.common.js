@@ -76,8 +76,7 @@ module.exports = {
     new CopyWebpackPlugin({
        patterns: [
         { from: path.resolve(__dirname, '../src/assets'), to: "assets" }
-      ],
-      // { from: path.resolve(__dirname, '../src/assets'), to: 'assets' },
+      ]
     }),
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({

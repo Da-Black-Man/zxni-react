@@ -3,7 +3,8 @@ import { hot } from 'react-hot-loader/root';
 import { html } from './utils/environment';
 import { isIE } from './utils/is';
 import Loader from './components/Loader';
-import Guides from './components/Guides';
+import Header from './layout/Header';
+import Main from './layout/Main';
 
 function handlePageLoading() {
   window.addEventListener('load', () => {
@@ -27,7 +28,8 @@ class App extends Component {
     return (
       <div className="app__container">
         <Loader />
-        <Guides />
+        <Header />
+        <Main />
       </div>
     );
   }

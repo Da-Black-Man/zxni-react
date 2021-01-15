@@ -10,70 +10,105 @@
 // 2. Ensure the page always fills at least the entire height of the viewport.
 //
 html {
-    min-height: 100%;
-    color: $color;
-    font-family: $font-family;
-    line-height: $line-height; 
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+  color: $color;
+  font-family: $font-family;
+  line-height: $line-height;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-    @media (max-width: $to-small) {
-        font-size: $font-size - 2px;
-    }
+  &:not(.has-scroll-init) {
+    cursor: wait;
+    overflow: hidden;
+  }
 
-    @media (min-width: $from-small) and (max-width: $to-medium) {
-        font-size: $font-size - 2px;
-    }
+  &.has-scroll-smooth {
+    overflow: hidden;
+  }
 
-    @media (min-width: $from-medium) and (max-width: $to-large) {
-        font-size: $font-size - 1px;
-    }
+  &.has-scroll-dragging {
+    user-select: none;
+  }
 
-    @media (min-width: $from-large) and (max-width: $to-huge) {
-        font-size: $font-size; 
-    }
+  @media (max-width: $to-small) {
+    font-size: $font-size - 2px;
+  }
 
-    @media (min-width: $from-huge) and (max-width: $to-gigantic) {
-        font-size: $font-size + 1px;
-    }
+  @media (min-width: $from-small) and (max-width: $to-medium) {
+    font-size: $font-size - 2px;
+  }
 
-    @media (min-width: $from-gigantic) and (max-width: $to-colossal) {
-        font-size: $font-size + 2px;
-    }
+  @media (min-width: $from-medium) and (max-width: $to-large) {
+    font-size: $font-size - 1px;
+  }
 
-    @media (min-width: $from-colossal) {
-        font-size: $font-size + 4px;
-    }
+  @media (min-width: $from-large) and (max-width: $to-huge) {
+    font-size: $font-size;
+  }
 
-    &.is-loading {
-        cursor: wait;
-    }
+  @media (min-width: $from-huge) and (max-width: $to-gigantic) {
+    font-size: $font-size + 1px;
+  }
 
-    &.has-scroll-smooth {
-        overflow: hidden;
-    }
+  @media (min-width: $from-gigantic) and (max-width: $to-colossal) {
+    font-size: $font-size + 2px;
+  }
 
-    &.has-scroll-dragging {
-        user-select: none;
-    }
+  @media (min-width: $from-colossal) {
+    font-size: $font-size + 4px;
+  }
+
+  &.is-loading {
+    cursor: wait;
+  }
+
+  &.has-scroll-dragging {
+    user-select: none;
+  }
 }
 
 body {
-    .has-scroll-smooth & {
-        overflow: hidden;
-    }
+  background-color: #17152f;
+  .has-scroll-smooth & {
+    overflow: hidden;
+  }
 }
 
 ::selection {
-    background-color: $selection-background-color;
-    color: $selection-text-color;
-    text-shadow: none;
+  background-color: $selection-background-color;
+  color: $selection-text-color;
+  text-shadow: none;
 }
 
 a {
-    color: $link-color;
+  color: $link-color;
 
-    @include u-hocus {
-        color: $link-hover-color;
-    }
+  @include u-hocus {
+    color: $link-hover-color;
+  }
+}
+
+[data-scroll-container] {
+  .has-scroll-smooth & {
+    min-height: 100vh;
+  }
+  [data-scroll-direction='horizontal'] & {
+    white-space: nowrap;
+    height: 100vh;
+    display: inline-block;
+    white-space: nowrap;
+  }
+}
+
+[data-scroll-section] {
+  [data-scroll-direction='horizontal'] & {
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    height: 100%;
+  }
+}
+
+#svg-- {
+  display: none;
 }

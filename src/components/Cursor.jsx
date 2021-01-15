@@ -72,7 +72,7 @@ class Cursor extends React.Component {
 
   initHovers() {
     const LinkItems = gsap.to(this.outerCursor, 0.5, {
-      backgroundColor: '#000000',
+      backgroundColor: '#FF0096',
       scale: 0.3,
       opacity: 1,
       ease: 'back',
