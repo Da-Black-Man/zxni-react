@@ -63,8 +63,10 @@ export default () => {
             <div className="c-main-hero__background-wrap">
               <div
                 className="o-background"
+                data-scroll
+                data-scroll-speed="-1"
                 style={{
-                  backgroundImage: `url('assets/images/grid.svg')`,
+                  backgroundImage: `url('assets/images/hero.jpg')`,
                 }}
               ></div>
               <div className="c-main-hero__overlay"></div>
