@@ -126,7 +126,7 @@
       &.-is-curent {
         a {
           &::after {
-            border-bottom: 5px solid $blue;
+            border-bottom: 5px solid $accent;
             transform: scaleX(1);
             transform-origin: center left;
           }
@@ -152,7 +152,7 @@
         transform: scaleX(0);
         transition: transform .3s cubic-bezier(.4, 0, 0, 1);
         transform-origin: center right;
-        border-bottom: 5px solid $blue;
+        border-bottom: 5px solid $accent;
 
       }
 
@@ -300,7 +300,7 @@
     color: #fff;
 
     a {
-      color: $blue-4
+      color: $accent
     }
   }
 
@@ -333,7 +333,7 @@
     }
 
     a {
-      color: $blue-4;
+      color: $accent;
     }
   }
 
@@ -380,7 +380,7 @@
           transform: translateX(-15px) scale(0.9);
 
           svg {
-            fill: $blue;
+            fill: $accent;
           }
 
         }

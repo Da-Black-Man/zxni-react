@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { html } from '../utils/environment';
 import Guides from '../components/Guides';
-import Cursor from '../components/Cursor';
 import Hero from '../components/Hero';
 import Footer from './Footer';
 
@@ -11,6 +10,8 @@ export default () => {
   const mystyle = {
     color: 'white',
   };
+
+  const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
     async function getLocomotive() {
@@ -22,26 +23,43 @@ export default () => {
       };
       const scroll = new Locomotive(options);
       scroll.on('scroll', (instance) => {
-        // const scrollBottom = instance.scroll.y + this.windowHeight;
-        console.log(window.innerHeight);
-
+        const scrollBottom = instance.scroll.y + window.innerHeight;
         instance.scroll.y > 20
           ? html.classList.add('has-scrolled')
           : html.classList.contains('has-scrolled') &&
             html.classList.remove('has-scrolled');
+
         instance.scroll.y > 300
           ? html.classList.add('has-nav')
           : html.classList.contains('has-nav') &&
             html.classList.remove('has-nav');
+
+        scrollBottom > document.body.clientHeight - 100
+          ? html.classList.add('has-scrolled-bottom')
+          : html.classList.contains('has-scrolled-bottom') &&
+            html.classList.remove('has-scrolled-bottom');
+
+        const totalScroll = instance.scroll.y;
+        const windowHeight =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrolly = `${totalScroll / windowHeight}`;
+
+        setScroll(scrolly);
       });
     }
-
     getLocomotive();
   }, []);
 
   return (
     <main data-namespace="home" data-page="overview" style={mystyle}>
-      <Cursor />
+      <div id="progressBarContainer">
+        <div
+          id="progressBar"
+          style={{ transform: `scale(${scroll}, 1)`, opacity: `${scroll}` }}
+        />
+      </div>
+
       <div className="o-scroll" ref={refScrollContainer}>
         <div className="o-wrap">
           <Hero />

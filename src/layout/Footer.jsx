@@ -90,7 +90,7 @@ export default () => {
         </div>
       </div>
 
-      <div className="__back-to js-scrollto" data-target="#main__menu">
+      <div className="__back-to js-scrollto">
         <div className="__back-to-link">
           <div className="__back-to-icon">
             <svg>

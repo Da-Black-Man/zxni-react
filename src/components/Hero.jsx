@@ -1,6 +1,60 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { TweenMax } from 'gsap/TweenMax';
 
 export default () => {
+  const [isActive, setActive] = useState('false');
+
+  const socialClick = (e) => {
+    e.preventDefault();
+    setActive(!isActive);
+    // console.log(e.currentTarget.parentNode.parentNode);
+
+    const socialLinks = document.querySelectorAll(
+      '.c-main-hero__social-link:not(.-social-hub)'
+    );
+    const test = document.querySelectorAll('.c-main-hero__social-list a');
+    socialLinks.forEach(function (item, index) {
+      if (!item.classList.contains('show')) {
+        item.classList.add('show');
+        TweenMax.to(item, 0.4, {
+          y: (index - 5) * -10,
+          autoAlpha: 1,
+        });
+      } else {
+        TweenMax.staggerTo(
+          socialLinks,
+          0.2,
+          { y: 0, autoAlpha: 0 },
+          0.1,
+          function () {
+            document
+              .querySelectorAll('.c-main-hero__social-link.show')
+              .forEach(function (element) {
+                element.classList.remove('show');
+              });
+          }
+        );
+      }
+    });
+
+    // .forEach((item, index) => {
+    //   if (!item.classList.contains('show')) {
+    //     item.classList.add('show');
+    //     gsap.to(item, {
+    //       opacity: 1,
+    //       stagger: 0.2,
+    //     });
+    //   } else {
+    //     // console.log('yo');
+    //     // const elems = document.querySelectorAll(
+    //     //   '.c-main-hero__social-list a'
+    //     // );
+    // [].forEach.call(elems, function (el) {
+    //   el.classList.remove('show');
+    // });
+    //   }
+    // });
+  };
   return (
     <section data-component="main-hero" data-scroll-section>
       <div className="c-main-hero">
@@ -118,7 +172,13 @@ export default () => {
                 </a>
               </li>
               <li className="c-main-hero__social-item" id="social-hub">
-                <a className="c-main-hero__social-link -social-hub" href="/">
+                <a
+                  className={`c-main-hero__social-link -social-hub ${
+                    isActive ? '--open' : ''
+                  }`}
+                  href="#"
+                  onClick={socialClick}
+                >
                   <svg className="c-main-hero__social-icon" role="img">
                     <use xlinkHref="#svg-social-hub"></use>
                   </svg>

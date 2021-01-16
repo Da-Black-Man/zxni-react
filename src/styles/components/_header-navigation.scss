@@ -47,7 +47,7 @@
       transition: 0.3s all ease-in-out;
 
       border-radius: 0rem 0rem 2rem 2rem;
-      background-color: $blue-1;
+      background-color: $accent;
     }
   }
 
@@ -162,7 +162,7 @@
         color: #fff;
 
         &::after {
-          border-bottom: 3px solid $blue-2;
+          border-bottom: 3px solid $accent;
           transform: scaleX(1);
           transform-origin: center left;
         }
@@ -231,7 +231,7 @@
         transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
         &:hover {
-          background-color: $blue-2;
+          background-color: $accent;
         }
 
         span {
@@ -279,7 +279,7 @@
       transform: scaleX(0);
       transition: transform 0.3s cubic-bezier(0.4, 0, 0, 1);
       transform-origin: center right;
-      border-bottom: 3px solid $blue-2;
+      border-bottom: 3px solid $accent;
     }
 
     &:not(.-phone):hover {
@@ -315,7 +315,7 @@
 
     @media (max-width: $to-tiny) {
       .has-scrolled & {
-        background: $blue-1;
+        background: $accent;
         border-radius: 0 0 0 10px;
       }
     }

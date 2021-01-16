@@ -3,6 +3,7 @@ import { hot } from 'react-hot-loader/root';
 import { html } from './utils/environment';
 import { isIE } from './utils/is';
 import Loader from './components/Loader';
+import Cursor from './components/Cursor';
 import Header from './layout/Header';
 import Main from './layout/Main';
 
@@ -28,6 +29,7 @@ class App extends Component {
     return (
       <div className="app__container">
         <Loader />
+        <Cursor />
         <Header />
         <Main />
       </div>

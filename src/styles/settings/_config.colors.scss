@@ -7,6 +7,9 @@
 $white: #FFFFFF;
 $black: #000000;
 
+$accent: #FF0096;
+$accent-2: #00B1DD;
+
 
 $blue: #191C24;
 
@@ -20,7 +23,6 @@ $gray-1: #4A4A4A;
 $gray-2: #9B9B9B;
 $gray-3: #EEEEEE;
 
-$font-color: #4A4A4A;
 $footer-bg:  #131123;
 
 // Specific
@@ -43,6 +45,6 @@ $linkedin-color:  #0077B5;
 
 
 // Customs
-$cursor-color:  #FF0096;
-$loader-bg: #1e1e22;
+$cursor-color:  $accent;
+$loader-bg: #131123;
 $border-line: rgba(182, 184, 185, 0.29);

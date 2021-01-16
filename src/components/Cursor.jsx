@@ -1,5 +1,5 @@
 import React from 'react';
-import { gsap } from 'gsap';
+import { TweenMax } from 'gsap/TweenMax';
 
 class Cursor extends React.Component {
   constructor(props) {
@@ -31,11 +31,11 @@ class Cursor extends React.Component {
   initCursor() {
     document.documentElement.classList.add('has-custom-cursor');
     const unveilCursor = () => {
-      gsap.set(this.innerCursor, {
+      TweenMax.set(this.innerCursor, {
         x: this.clientX,
         y: this.clientY,
       });
-      gsap.set(this.outerCursor, {
+      TweenMax.set(this.outerCursor, {
         x: this.clientX - this.outerCursorBox.width / 2,
         y: this.clientY - this.outerCursorBox.height / 2,
       });
@@ -52,12 +52,12 @@ class Cursor extends React.Component {
     });
 
     const render = () => {
-      gsap.set(this.innerCursor, {
+      TweenMax.set(this.innerCursor, {
         x: this.clientX,
         y: this.clientY,
       });
       if (!this.isStuck) {
-        gsap.to(this.outerCursor, this.outerCursorSpeed, {
+        TweenMax.to(this.outerCursor, this.outerCursorSpeed, {
           x: this.clientX - this.outerCursorBox.width / 2,
           y: this.clientY - this.outerCursorBox.height / 2,
         });
@@ -71,7 +71,7 @@ class Cursor extends React.Component {
   }
 
   initHovers() {
-    const LinkItems = gsap.to(this.outerCursor, 0.5, {
+    const LinkItems = TweenMax.to(this.outerCursor, 0.5, {
       backgroundColor: '#FF0096',
       scale: 0.3,
       opacity: 1,
@@ -81,7 +81,7 @@ class Cursor extends React.Component {
 
     const handleMouseEnter = () => {
       this.outerCursorSpeed = 0;
-      gsap.set(this.innerCursor, {
+      TweenMax.set(this.innerCursor, {
         opacity: 0,
       });
       LinkItems.play();
@@ -89,7 +89,7 @@ class Cursor extends React.Component {
 
     const handleMouseLeave = () => {
       this.outerCursorSpeed = 0.2;
-      gsap.set(this.innerCursor, {
+      TweenMax.set(this.innerCursor, {
         opacity: 1,
       });
       LinkItems.reverse();
