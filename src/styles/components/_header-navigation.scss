@@ -157,17 +157,7 @@
       padding: 0 1.2vw;
     }
 
-    &.-is-current {
-      a {
-        color: #fff;
 
-        &::after {
-          border-bottom: 3px solid $accent;
-          transform: scaleX(1);
-          transform-origin: center left;
-        }
-      }
-    }
 
     &::before {
       content: '01';
@@ -250,6 +240,19 @@
     padding: 0 1.2vw;
     font-size: 0.9375rem;
     line-height: 1;
+    &:focus {
+      color: #fff;
+    }
+
+        &.active:not(.-phone)::after {
+        
+          border-bottom: 3px solid $accent;
+          transform: scaleX(1);
+          transform-origin: center left;
+        }
+     
+  
+ 
 
     &.has-drop {
       display: flex;
@@ -268,6 +271,7 @@
       }
     }
 
+    
     &:not(.-phone)::after {
       content: '';
       width: 100%;

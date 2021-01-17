@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export default () => {
   return (
@@ -15,29 +16,14 @@ export default () => {
         <nav className="c-header-navigation__nav">
           <ul className="c-header-navigation__list">
             <li className="c-header-navigation__item">
-              <a className="c-header-navigation__link" href="/">
-                Lorem
-              </a>
+              <NavLink to="/" exact className="c-header-navigation__link">
+                Home
+              </NavLink>
             </li>
             <li className="c-header-navigation__item">
-              <a className="c-header-navigation__link" href="/">
-                Lorem
-              </a>
-            </li>
-            <li className="c-header-navigation__item">
-              <a className="c-header-navigation__link" href="/">
-                Lorem
-              </a>
-            </li>
-            <li className="c-header-navigation__item">
-              <a className="c-header-navigation__link" href="/">
-                Lorem
-              </a>
-            </li>
-            <li className="c-header-navigation__item">
-              <a className="c-header-navigation__link" href="/">
-                Lorem
-              </a>
+              <NavLink to="/page" className="c-header-navigation__link">
+                Page
+              </NavLink>
             </li>
           </ul>
         </nav>
